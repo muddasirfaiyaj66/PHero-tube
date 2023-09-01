@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -12,14 +12,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="max-w-screen-2xl mx-auto">
     <header>
-        <nav>
-
+        <nav class="my-2">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                  
+                  <img src="./Logo.png" alt="">
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                 <button class="btn ">Sort by view</button>
+                </div>
+                <div class="navbar-end">
+                  <a class="btn bg-[#FF1F3D] text-white" href="blog.html">Blog</a>
+                </div>
+              </div>
         </nav>
+        <hr>
     </header>
     <main>
-        
+
     </main>
     <!-- script  -->
     <script src="js/index.js"></script>
