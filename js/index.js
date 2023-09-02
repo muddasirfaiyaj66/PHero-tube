@@ -34,25 +34,25 @@ const handleLoadData = async (categoryId) => {
     noContentContainer.innerHTML = ' ';
     const checkData = data.status;
 
-   
+
 
     if (checkData) {
         data.data.forEach((card) => {
 
             const div = document.createElement('div');
             console.log(card);
-           
-            function showTime(time){
-                  
+
+            function showTime(time) {
+
                 let hrs = time / 3600;
-                let hrsValue =hrs.toFixed(0);
+                let hrsValue = hrs.toFixed(0);
                 let min = time / 60;
-                let minValue =min.toFixed(0);
-                
-               return `${hrsValue}hours ${minValue}min ago      `;
+                let minValue = min.toFixed(0);
+
+                return `${hrsValue}hours ${minValue}min ago      `;
             };
-            
-            
+
+
             div.innerHTML = `
         <div class="card h-[400px] bg-base-100 shadow-xl">
         <figure ><img src="${card.thumbnail}" alt="Banner Image"  />
@@ -107,3 +107,4 @@ const handleLoadData = async (categoryId) => {
 };
 handleCategory();
 handleLoadData('1000');
+
