@@ -9,7 +9,7 @@ const handleCategory = async () => {
         div.classList.add("tabs-container", "font-bold", "flex", "justify-between", "ml-3", "mb-2")
 
         div.innerHTML = `
-        <a onclick ="handleLoadData('${category.category_id}')" id="click"   class=" active-tab active  tab ">${category.category}</a>
+        <a onclick ="handleLoadData('${category.category_id}')" id="click"   class="   tab ">${category.category}</a>
         `;
 
         tabContainer.appendChild(div);
@@ -21,7 +21,7 @@ const handleCategory = async () => {
 };
 const handleLoadData = async (categoryId) => {
 
-    console.log(categoryId);
+    
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
     const data = await response.json();
 
@@ -38,9 +38,9 @@ const handleLoadData = async (categoryId) => {
 
     if (checkData) {
         data.data.forEach((card) => {
-
+         
             const div = document.createElement('div');
-            console.log(card);
+ 
 
             function showTime(time) {
 
@@ -50,8 +50,9 @@ const handleLoadData = async (categoryId) => {
                 let minValue = min.toFixed(0);
 
                 return `${hrsValue}hours ${minValue}min ago      `;
-            };
 
+            };
+            
 
             div.innerHTML = `
         <div class="card h-[400px] bg-base-100 shadow-xl">
@@ -68,7 +69,7 @@ const handleLoadData = async (categoryId) => {
             <div>
                 <h2 class="card-title text-2xl">${card.title}</h2>
                 <p class="text-xl">${card.authors[0].profile_name}  <img class="inline" src="${card.authors[0].verified ? '../verified.png' : ''}"/></p>
-          <small class="text-lg">${card.others.views ? card.others.views : ''}</small>
+          <small class=" card-views text-lg">${card.others.views ? card.others.views : ''}</small>
           
                 
             </div>
@@ -84,7 +85,10 @@ const handleLoadData = async (categoryId) => {
         `;
 
             tabsCardContainer.appendChild(div);
-        });
+
+           
+        });        
+        
     } else {
         const error = document.createElement('div');
         error.innerHTML = `
@@ -106,5 +110,7 @@ const handleLoadData = async (categoryId) => {
 
 };
 handleCategory();
+
+
 handleLoadData('1000');
 
